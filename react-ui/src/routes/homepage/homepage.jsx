@@ -1,5 +1,12 @@
-const homepage = () => {
-  return <p>Home Page</p>;
+import UsernameForm from "../../components/usernameform";
+
+const Homepage = () => {
+  return (
+    <>
+      <p>Home Page</p>
+      <UsernameForm />
+    </>
+  );
 };
 
-export default HomePage;
+export default Homepage;

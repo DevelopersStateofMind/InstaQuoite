@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import Greeting from "../../components/greeting";
+
 const Header = () => {
   return (
     <header>
@@ -20,6 +22,7 @@ const Header = () => {
           <NavLink to="/aboutme">aboutme</NavLink>
         </li>
       </ul>
+      <Greeting someName="Jeremy" />
     </header>
   );
 };
