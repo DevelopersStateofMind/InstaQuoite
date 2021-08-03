@@ -1,6 +1,5 @@
 import { Route } from "react-router-dom";
 import AboutMe from "./aboutme/aboutme";
-import Credits from "./credits/credits";
 import DetailsofQuotes from "./detailsofquotes/detailsofquotes";
 import Homepage from "./homepage/homepage";
 import QuoteCalculator from "./quotecalculator/quotecalculator";
@@ -22,7 +21,6 @@ const Routes = () => {
         render={() => <DetailsofQuotes />}
       />
       <Route exact={true} path="/aboutme" render={() => <AboutMe />} />
-      <Route exact={true} path="/credits" render={() => <Credits />} />
     </>
   );
 };
