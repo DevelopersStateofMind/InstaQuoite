@@ -1,11 +1,16 @@
 // import Card from "../components/UI/card.js";
 
 const Homepage = () => {
+
+  const handleClick = e => {
+    console.log('i heard a click');
+  }
+
   return (
     <>
       <h1> Welcome to the Quote Calculator!</h1>
       <div>
-        <img src="QuoteCalculatorPh1.gif" />
+        <img src="QuoteCalculatorPh1.gif" alt="calculator"/>
       </div>
       <div>
         <p>
@@ -25,7 +30,7 @@ const Homepage = () => {
       </div>
 
       <div>
-        <img src="QuoteCalculatorPh2.jpg" />
+        <img src="QuoteCalculatorPh2.jpg" alt="calculator"/>
       </div>
       <div>
         <p>
@@ -43,7 +48,7 @@ const Homepage = () => {
           cursus diam sollicitudin. Duis eu elit mi.
         </p>
       </div>
-      <button onClick href="/">
+      <button onClick={handleClick} href="/">
         Try Quote Calculator
       </button>
       {/* <UsernameForm /> */}

@@ -6,7 +6,7 @@ const aboutme = () => {
         <h2>Teila Garraway</h2>
       </div>
       <div>
-        <img src="Teila.jpg" alt="Picture of Teila" />
+        <img src="Teila.jpg" alt="Headshot of Teila" />
       </div>
       <div>
         <p>

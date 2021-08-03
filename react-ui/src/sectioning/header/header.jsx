@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 // import Greeting from "../../components/UI/greeting";
 import "./header.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
