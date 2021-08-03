@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 // import Greeting from "../../components/UI/greeting";
 import "./header.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
@@ -10,7 +9,9 @@ const Header = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand className="logoinline" href="/">
-            <img src="InstaQuoteLogo.png" alt="mylogo" />
+            <div class="image-container">
+              <img src="InstaQuoteLogo.png" alt="mylogo" />
+            </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
