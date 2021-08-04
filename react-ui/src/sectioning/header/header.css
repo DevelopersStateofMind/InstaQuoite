@@ -1,19 +1,17 @@
-.logininline {
-  height: 50%;
-  width: 50%;
-  display: inline-block;
-}
-/* .nav-bar-links {
-  display: inline-block;
-  vertical-align: middle;
-  width: 7%;
-} */
-
-.image-container {
-  width: 60px;
+.logo-container {
+  width: 100px;
 }
 
-.image-container img {
+.logo-container img {
   height: auto;
   width: 100%;
+}
+
+.nav-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav-bar-links li {
+  margin-right: 100px;
 }

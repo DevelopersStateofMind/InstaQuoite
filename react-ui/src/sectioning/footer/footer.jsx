@@ -1,20 +1,24 @@
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="Footer mt-5">
-      <Navbar expand={"md" | "lg" | "xl" | "xxl"} variant="light" bg="light">
+    <footer className="Footer">
+      <Navbar
+        expand={"md" | "lg" | "xl" | "xxl"}
+        variant="primary"
+        bg="primary"
+      >
         <Container>
-          <Navbar.Brand href="/">
-          </Navbar.Brand>
+          <Navbar.Brand href="/"></Navbar.Brand>
+          <Nav className="text-white bg-transparent">
+            <Nav.Link href=" ">Copyright 2021</Nav.Link>
+            <Nav.Link href="#https://github.com/DevelopersStateofMind">
+              Github
+            </Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
-      <ul className="Footer-text">
-              <li>Copyright 2021</li>
-              <li>
-                <a href="https://github.com/DevelopersStateofMind">GitHub</a>
-              </li>
-            </ul>
     </footer>
   );
 };

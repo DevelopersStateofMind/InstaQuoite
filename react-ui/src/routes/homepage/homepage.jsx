@@ -1,16 +1,16 @@
 // import Card from "../components/UI/card.js";
+import "./homepage.css";
 
 const Homepage = () => {
-
-  const handleClick = e => {
-    console.log('i heard a click');
-  }
+  const handleClick = (e) => {
+    console.log("i heard a click");
+  };
 
   return (
     <>
       <h1> Welcome to the Quote Calculator!</h1>
-      <div>
-        <img src="QuoteCalculatorPh1.gif" alt="calculator"/>
+      <div className="gif-container">
+        <img src="QuoteCalculatorPh1.gif" alt="calculator" />
       </div>
       <div>
         <p>
@@ -29,8 +29,8 @@ const Homepage = () => {
         </p>
       </div>
 
-      <div>
-        <img src="QuoteCalculatorPh2.jpg" alt="calculator"/>
+      <div className="pic2-container">
+        <img src="QuoteCalculatorPh2.jpg" alt="calculator" />
       </div>
       <div>
         <p>
