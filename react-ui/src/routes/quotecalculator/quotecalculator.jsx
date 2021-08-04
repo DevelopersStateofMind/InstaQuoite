@@ -1,60 +1,26 @@
-import { Row, Col, FloatingLabel, Form } from "react-bootstrap";
+import { useState } from "react";
 
-const quotecalculator = () => {
-  class calculate extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { value: "" };
+const quotecalculator = (props) => {
+  const [enteredjobName, setEnteredjobName] = useState("");
 
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-      this.setState({ value: event.target.value });
-    }
-
-    handleSubmit(event) {
-      alert("A name was submitted: " + this.state.value);
-      event.preventDefault();
-    }
-    render() {
-      // const handleSubmit = (e) => {
-      //   e.preventDefault();
-      //   //keeps form from refreshing pg.
-      //   console.log({ e });
-
-      <div>
-        <div>
-          <h1>Let's Quote your Job!</h1>
-        </div>
-        <div className="calculator-cal">
-          <form onSubmit={handleSubmit}>
-            <Row className="g-2">
-              <Col md>
-                <FloatingLabel controlId="floatingInputGrid" label="Job Date">
-                  <Form.Control type="date" placeholder="Job Date" />
-                </FloatingLabel>
-                <FloatingLabel controlId="floatingInputGrid" label="Job Number">
-                  <Form.Control type="number" placeholder="Enter Job Number" />
-                </FloatingLabel>
-                <FloatingLabel
-                  controlId="floatingInputGrid"
-                  label="Hourly Rate"
-                >
-                  <Form.Control type="number" placeholder="Hourly Rate" />
-                </FloatingLabel>
-                <FloatingLabel controlId="floatingInputGrid" label="Mileage">
-                  <Form.Control type="number" placeholder="Mileage" />
-                </FloatingLabel>
-              </Col>
-            </Row>
-            <input type="submit" />
-          </form>
-        </div>
-      </div>;
-    }
-  }
+  const jobnameInputChangeHandler = (event) => {
+    setEnteredjobName(event.target.value);
+  };
+  const formSubmissionHandler = (event) => {
+    event.preventDefault();
+    console.log(enteredjobName);
+  };
+  return (
+    <form onSubmit={formSubmissionHandler}>
+      <div className="form-control">
+        <label htmlFor="jobname">Job-Name</label>
+        <input type="text" id="Job-Name" onChange={jobnameInputChangeHandler} />
+      </div>
+      <div className="form-actions">
+        <button>Submit</button>
+      </div>
+    </form>
+  );
 };
 
 export default quotecalculator;
