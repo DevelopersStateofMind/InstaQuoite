@@ -24,10 +24,13 @@ const Header = () => {
                   <Nav.Link href="/quotecalculator">Quote Calculator</Nav.Link>
                 </li>
                 <li>
+                  <Nav.Link href="/quotesummary">Quote Summary</Nav.Link>
+                </li>
+                <li>
                   <Nav.Link href="/listofquotes">List of quotes</Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link href="/aboutme">About Me</Nav.Link>
+                  <Nav.Link href="/about">About</Nav.Link>
                 </li>
               </Nav>
             </ul>
