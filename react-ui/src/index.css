@@ -1,7 +1,7 @@
 /* *********************************CSS from tutorial **************************************** */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
 
- {
+* {
   box-sizing: border-box;
 }
 
@@ -61,7 +61,7 @@ body {
 
 .control-group .form-control {
   min-width: 15rem;
-  flex: 1;
+  flex: 0.5;
 }
 
 button {

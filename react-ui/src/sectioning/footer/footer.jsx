@@ -1,17 +1,17 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
 import "./footer.css";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <Nav.Link href="/">Copyright 2021</Nav.Link>
-      <Nav.Link
-        href="#https://github.com/DevelopersStateofMind"
+      <a href="/">Copyright 2021</a>
+      <a
+        href="https://github.com/DevelopersStateofMind"
         target="_blank"
+        rel="noreferrer"
       >
         Github
-      </Nav.Link>
+      </a>
     </footer>
   );
 };

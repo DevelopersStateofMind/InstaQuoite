@@ -19,12 +19,17 @@ const About = () => {
                 growing in my craft. Combining my love for technology with my
                 work experiences thus far.
               </Card.Text>
-              <a href="https://github.com/settings/profile" target="_blank">
+              <a
+                href="https://github.com/settings/profile"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Button>Github</Button>
               </a>
               <a
                 href="https://www.linkedin.com/in/teila-garraway-37121154/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <Button>LinkedIn</Button>
               </a>
