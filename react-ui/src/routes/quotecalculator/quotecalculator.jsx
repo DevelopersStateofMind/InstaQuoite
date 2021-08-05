@@ -1,3 +1,8 @@
+// import React, { useState } from 'react';
+// import { connect } from 'react-redux';
+// import { Redirect } from 'react-router-dom';
+// import { submitForm } from '../../redux/actions';
+
 import useInput from "../../hooks/use-Input";
 import { FloatingLabel, Form } from "react-bootstrap";
 
@@ -5,6 +10,9 @@ const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
 const Quotecalculator = (props) => {
+  // const Quotecalculator = ({isSubmitted, submitForm}) => {
+
+  //handleChange
   const {
     value: jobNameValue,
     isValid: jobNameIsValid,
@@ -74,7 +82,7 @@ const Quotecalculator = (props) => {
   ) {
     formIsValid = true;
   }
-
+  //Submit Handler
   const submitHandler = (event) => {
     event.preventDefault();
 
