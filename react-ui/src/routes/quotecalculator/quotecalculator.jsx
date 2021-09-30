@@ -4,7 +4,13 @@
 // import { submitForm } from '../../redux/actions';
 
 import useInput from "../../hooks/use-Input";
-import { FloatingLabel, Form, Container } from "react-bootstrap";
+import {
+  FloatingLabel,
+  Form,
+  Container,
+  ButtonGroup,
+  Button,
+} from "react-bootstrap";
 import "./quotecalculator.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -63,6 +69,9 @@ const Quotecalculator = (props) => {
     inputBlurHandler: morefeesBlurHandler,
     reset: resetmorefees,
   } = useInput(isNotEmpty);
+
+  const { valueChangeHandler: witnessChangeHandler, value: witnessValue } =
+    useInput(isNotEmpty);
 
   let formIsValid = false;
   if (
@@ -203,11 +212,23 @@ const Quotecalculator = (props) => {
               />
               {notarizeHasError && <p>Please Enter Pages to be Notarized</p>}
             </div>
+
             <div className="mb-3">
               <p> Is a witness required?</p>
-              <Form.Check type="radio" id="Yes" label="Yes" />
-
-              <Form.Check type="radio" id="No" label="No" />
+              <Form.Group value={witnessValue} onChange={witnessChangeHandler}>
+                <Form.Check
+                  type="radio"
+                  name="witnessRequiredSet"
+                  label="Yes"
+                  value={true}
+                />
+                <Form.Check
+                  type="radio"
+                  name="witnessRequiredSet"
+                  label="No"
+                  value={false}
+                />
+              </Form.Group>
             </div>
             <div className="mb-3">
               <p> Do you have to pick up the witness?</p>
