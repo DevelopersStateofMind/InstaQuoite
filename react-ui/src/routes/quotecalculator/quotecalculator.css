@@ -1,0 +1,10 @@
+.calc-header {
+  border: solid red 2px;
+}
+
+.entire-form {
+  width: 50%;
+  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+}

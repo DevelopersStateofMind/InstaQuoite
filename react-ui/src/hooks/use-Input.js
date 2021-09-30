@@ -6,6 +6,7 @@ const initialInputState = {
 
 const inputStateReducer = (state, action) => {
   if (action.type === "INPUT") {
+    console.log(action);
     return { value: action.value, isTouched: state.isTouched };
   }
   if (action.type === "BLUR") {

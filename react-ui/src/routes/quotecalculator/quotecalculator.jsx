@@ -4,7 +4,8 @@
 // import { submitForm } from '../../redux/actions';
 
 import useInput from "../../hooks/use-Input";
-import { FloatingLabel, Form } from "react-bootstrap";
+import { FloatingLabel, Form, Container } from "react-bootstrap";
+import "./quotecalculator.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -46,28 +47,21 @@ const Quotecalculator = (props) => {
     reset: resetmileage,
   } = useInput(isNotEmpty);
   const {
-    value: hrRateValue,
-    isValid: hrRateIsValid,
-    hasError: hrRateHasError,
-    valueChangeHandler: hrRateChangeHandler,
-    inputBlurHandler: hrRateBlurHandler,
-    reset: resethrRate,
+    value: notarizeValue,
+    isValid: notarizeIsValid,
+    hasError: notarizeHasError,
+    valueChangeHandler: notarizeChangeHandler,
+    inputBlurHandler: notarizeBlurHandler,
+    reset: resetnotarize,
   } = useInput(isNotEmpty);
+
   const {
-    value: estHoursValue,
-    isValid: estHoursIsValid,
-    hasError: estHoursHasError,
-    valueChangeHandler: estHoursChangeHandler,
-    inputBlurHandler: estHoursBlurHandler,
-    reset: resetestHours,
-  } = useInput(isNotEmpty);
-  const {
-    value: materialCostsValue,
-    isValid: materialCostsIsValid,
-    hasError: materialCostsHasError,
-    valueChangeHandler: materialCostsChangeHandler,
-    inputBlurHandler: materialCostsBlurHandler,
-    reset: resetmaterialCosts,
+    value: morefeesValue,
+    isValid: morefeesIsValid,
+    hasError: morefeesHasError,
+    valueChangeHandler: morefeesChangeHandler,
+    inputBlurHandler: morefeesBlurHandler,
+    reset: resetmorefees,
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
@@ -76,9 +70,8 @@ const Quotecalculator = (props) => {
     jobDateIsValid &&
     emailIsValid &&
     mileageIsValid &&
-    hrRateIsValid &&
-    estHoursIsValid &&
-    materialCostsIsValid
+    notarizeIsValid &&
+    morefeesIsValid
   ) {
     formIsValid = true;
   }
@@ -96,18 +89,16 @@ const Quotecalculator = (props) => {
       jobDateValue,
       emailValue,
       mileageValue,
-      hrRateValue,
-      estHoursValue,
-      materialCostsValue
+      notarizeValue,
+      morefeesValue
     );
 
     resetjobName();
     resetjobDate();
     resetemail();
     resetmileage();
-    resethrRate();
-    resetestHours();
-    resetmaterialCosts();
+    resetnotarize();
+    resetmorefees();
   };
 
   const jobNameClasses = jobNameHasError
@@ -118,13 +109,10 @@ const Quotecalculator = (props) => {
   const mileageClasses = mileageHasError
     ? "form-control invalid"
     : "form-control";
-  const hrRateClasses = hrRateHasError
+  const notarizeClasses = notarizeHasError
     ? "form-control invalid"
     : "form-control";
-  const estHoursClasses = estHoursHasError
-    ? "form-control invalid"
-    : "form-control";
-  const materialCostsClasses = materialCostsHasError
+  const morefeesClasses = morefeesHasError
     ? "form-control invalid"
     : "form-control";
 
@@ -133,91 +121,123 @@ const Quotecalculator = (props) => {
       <div className="calc-header">
         <h1> Quote Calculator</h1>
       </div>
-      <div className="control-group">
-        <div className={jobNameClasses}>
-          <label htmlFor="name">Job Name</label>
-          <input
-            type="text"
-            id="name"
-            value={jobNameValue}
-            onChange={jobNameChangeHandler}
-            onBlur={jobNameBlurHandler}
-          />
-          {jobNameHasError && <p>Please Enter Job Name</p>}
-        </div>
-        <div className={dateClasses}>
-          <label htmlFor="date">Job Date</label>
-          <input
-            type="date"
-            id="Job date"
-            value={jobDateValue}
-            onChange={jobDateChangeHandler}
-            onBlur={jobDateBlurHandler}
-          />
-          {dateHasError && <p>Please Enter Job Date</p>}
-        </div>
-      </div>
-      <div>
-        <div className={emailClasses}>
-          <label htmlFor="email">Client E-Mail Address</label>
-          <input
-            type="email"
-            id="email"
-            value={emailValue}
-            onChange={emailChangeHandler}
-            onBlur={emailBlurHandler}
-          />
-          {emailHasError && <p>Please Enter Client Email Address</p>}
-        </div>
-        <div className={mileageClasses}>
-          <label htmlFor="number">Round Trip Mileage</label>
-          <input
-            type="number"
-            id="Round Trip Mileage"
-            value={mileageValue}
-            onChange={mileageChangeHandler}
-            onBlur={mileageBlurHandler}
-          />
-          {mileageHasError && <p>Please Enter Mileage</p>}
-        </div>
-        <div className={hrRateClasses}>
-          <label htmlFor="number">Hourly Rate</label>
-          <input
-            type="number"
-            id="Hourly Rate"
-            value={hrRateValue}
-            onChange={hrRateChangeHandler}
-            onBlur={hrRateBlurHandler}
-          />
-          {hrRateHasError && <p>Please Enter Your Hourly Rate</p>}
+      <Container fluid="md">
+        <div className="control-group">
+          <div className={jobNameClasses}>
+            <label htmlFor="name">Job Name</label>
+            <input
+              type="text"
+              id="name"
+              value={jobNameValue}
+              onChange={jobNameChangeHandler}
+              onBlur={jobNameBlurHandler}
+            />
+            {jobNameHasError && <p>Please Enter Job Name</p>}
+          </div>
+          <div className={dateClasses}>
+            <label htmlFor="date">Job Date</label>
+            <input
+              type="date"
+              id="Job date"
+              value={jobDateValue}
+              onChange={jobDateChangeHandler}
+              onBlur={jobDateBlurHandler}
+            />
+            {dateHasError && <p>Please Enter Job Date</p>}
+          </div>
         </div>
         <div>
-          <div className={estHoursClasses}>
-            <label htmlFor="number">Total Amount of Hours</label>
+          <div className={emailClasses}>
+            <label htmlFor="email">Client E-Mail Address</label>
+            <input
+              type="email"
+              id="email"
+              value={emailValue}
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+            />
+            {emailHasError && <p>Please Enter Client Email Address</p>}
+          </div>
+          <div className={mileageClasses}>
+            <label htmlFor="number">Round Trip Mileage</label>
             <input
               type="number"
-              id="Total Amount of Hours"
-              value={estHoursValue}
-              onChange={estHoursChangeHandler}
-              onBlur={estHoursBlurHandler}
+              id="Round Trip Mileage"
+              value={mileageValue}
+              onChange={mileageChangeHandler}
+              onBlur={mileageBlurHandler}
             />
-            {estHoursHasError && (
-              <p>Please Enter Total Amount of Hours to complete this job</p>
-            )}
+            {mileageHasError && <p>Please Enter Mileage</p>}
           </div>
-          <div className={materialCostsClasses}>
-            <label htmlFor="number">Estimated Material Costs</label>
-            <input
-              type="number"
-              id="Estimated Material Costs"
-              value={materialCostsValue}
-              onChange={materialCostsChangeHandler}
-              onBlur={materialCostsBlurHandler}
+          <div className="mb-3">
+            <p> Choose A Job Type </p>
+            <Form.Check
+              type="radio"
+              id="Loan Modification"
+              label="Loan Modification"
             />
-            {materialCostsHasError && (
-              <p>Please Enter Total Amount of Hours to complete this job</p>
-            )}
+
+            <Form.Check
+              type="radio"
+              id="Debt Consolidation"
+              label="Debt Consolidation"
+            />
+            <Form.Check type="radio" id="Auto Purchase" label="Auto Purchase" />
           </div>
+          <div className="mb-3">
+            <p> Are you printing the Documents</p>
+            <Form.Check type="radio" id="Yes" label="Yes" />
+
+            <Form.Check type="radio" id="No" label="No" />
+          </div>
+          <div className="mb-3">
+            <p> How Many Pages need to be Notarized?</p>
+            <div className={notarizeClasses}>
+              <label htmlFor="number">Pages to be notarized</label>
+              <input
+                type="number"
+                id="Pages to be Notarized"
+                value={notarizeValue}
+                onChange={notarizeChangeHandler}
+                onBlur={notarizeBlurHandler}
+              />
+              {notarizeHasError && <p>Please Enter Pages to be Notarized</p>}
+            </div>
+            <div className="mb-3">
+              <p> Is a witness required?</p>
+              <Form.Check type="radio" id="Yes" label="Yes" />
+
+              <Form.Check type="radio" id="No" label="No" />
+            </div>
+            <div className="mb-3">
+              <p> Do you have to pick up the witness?</p>
+              <Form.Check type="radio" id="Yes" label="Yes" />
+
+              <Form.Check type="radio" id="No" label="No" />
+            </div>
+            <div className={morefeesClasses}>
+              <label htmlFor="name">Please Enter Additonal Service Name</label>
+              <input
+                type="text"
+                id="name"
+                value={morefeesValue}
+                onChange={morefeesChangeHandler}
+                onBlur={morefeesBlurHandler}
+              />
+              {morefeesHasError && <p>Please Enter Additonal Service Name</p>}
+              <label htmlFor="number">How much is that Service</label>
+              <input
+                type="number"
+                id="How much is that Service"
+                value={notarizeValue}
+                onChange={notarizeChangeHandler}
+                onBlur={notarizeBlurHandler}
+              />
+              {notarizeHasError && <p>Please Enter service cost</p>}
+            </div>
+          </div>
+        </div>
+        <div>
           <>
             <FloatingLabel
               controlId="floatingTextarea2"
@@ -235,7 +255,7 @@ const Quotecalculator = (props) => {
             </Form.Group>
           </>
         </div>
-      </div>
+      </Container>
       <div className="form-actions">
         <button disabled={!formIsValid}>Calculate</button>
       </div>
