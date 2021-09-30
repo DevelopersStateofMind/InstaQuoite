@@ -72,6 +72,14 @@ const Quotecalculator = (props) => {
 
   const { valueChangeHandler: witnessChangeHandler, value: witnessValue } =
     useInput(isNotEmpty);
+  const {
+    valueChangeHandler: witnessPickupChangeHandler,
+    value: witnessPickupValue,
+  } = useInput(isNotEmpty);
+  const { valueChangeHandler: printingChangeHandler, value: printingValue } =
+    useInput(isNotEmpty);
+  const { valueChangeHandler: jobTypeChangeHandler, value: jobTypeValue } =
+    useInput(isNotEmpty);
 
   let formIsValid = false;
   if (
@@ -180,24 +188,43 @@ const Quotecalculator = (props) => {
           </div>
           <div className="mb-3">
             <p> Choose A Job Type </p>
-            <Form.Check
-              type="radio"
-              id="Loan Modification"
-              label="Loan Modification"
-            />
-
-            <Form.Check
-              type="radio"
-              id="Debt Consolidation"
-              label="Debt Consolidation"
-            />
-            <Form.Check type="radio" id="Auto Purchase" label="Auto Purchase" />
+            <Form.Group value={jobTypeValue} onChange={jobTypeChangeHandler}>
+              <Form.Check
+                type="radio"
+                name="JobType"
+                label="Loan Modification"
+                value={20}
+              />
+              <Form.Check
+                type="radio"
+                name="JobType"
+                label="Debt Consolidation"
+                value={30}
+              />
+              <Form.Check
+                type="radio"
+                name="JobType"
+                label="Auto Purchase"
+                value={50}
+              />
+            </Form.Group>
           </div>
           <div className="mb-3">
             <p> Are you printing the Documents</p>
-            <Form.Check type="radio" id="Yes" label="Yes" />
-
-            <Form.Check type="radio" id="No" label="No" />
+            <Form.Group value={printingValue} onChange={printingChangeHandler}>
+              <Form.Check
+                type="radio"
+                name="printingSet"
+                label="Yes"
+                value={true}
+              />
+              <Form.Check
+                type="radio"
+                name="printingSet"
+                label="No"
+                value={false}
+              />
+            </Form.Group>
           </div>
           <div className="mb-3">
             <p> How Many Pages need to be Notarized?</p>
@@ -212,7 +239,6 @@ const Quotecalculator = (props) => {
               />
               {notarizeHasError && <p>Please Enter Pages to be Notarized</p>}
             </div>
-
             <div className="mb-3">
               <p> Is a witness required?</p>
               <Form.Group value={witnessValue} onChange={witnessChangeHandler}>
@@ -232,9 +258,23 @@ const Quotecalculator = (props) => {
             </div>
             <div className="mb-3">
               <p> Do you have to pick up the witness?</p>
-              <Form.Check type="radio" id="Yes" label="Yes" />
-
-              <Form.Check type="radio" id="No" label="No" />
+              <Form.Group
+                value={witnessPickupValue}
+                onChange={witnessPickupChangeHandler}
+              >
+                <Form.Check
+                  type="radio"
+                  name="witnessPickupSet"
+                  label="Yes"
+                  value={true}
+                />
+                <Form.Check
+                  type="radio"
+                  name="witnessPickupSet"
+                  label="No"
+                  value={false}
+                />
+              </Form.Group>
             </div>
             <div className={morefeesClasses}>
               <label htmlFor="name">Please Enter Additonal Service Name</label>
