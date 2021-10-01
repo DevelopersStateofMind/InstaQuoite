@@ -9,6 +9,7 @@ const inputStateReducer = (state, action) => {
       value: action.value,
       isTouched: action.isTouched,
       [action.name]: {
+        id: action.id,
         value: action.value,
       },
     };
@@ -35,6 +36,7 @@ const useInput = (validateValue) => {
   const valueChangeHandler = (event) => {
     dispatch({
       type: "INPUT",
+      id: event.target.id,
       name: event.target.name,
       value: event.target.value,
     });

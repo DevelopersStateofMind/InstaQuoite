@@ -2,6 +2,7 @@
 // import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 // import { submitForm } from '../../redux/actions';
+import { useHistory } from "react-router-dom";
 import useInput from "../../hooks/use-Input";
 import { FloatingLabel, Form, Container } from "react-bootstrap";
 import "./quotecalculator.css";
@@ -10,6 +11,8 @@ const isNotEmpty = (value) => value && value.trim() !== "";
 const isEmail = (value) => value && value.includes("@");
 
 const Quotecalculator = (props) => {
+  const history = useHistory();
+
   //handleChange
   const {
     isValid,
@@ -33,9 +36,13 @@ const Quotecalculator = (props) => {
     if (!formIsValid) {
       return;
     }
-
+    const location = {
+      pathname: "/quotesummary",
+      state: { total, formdata: state },
+    };
     console.log("Submitted!");
     reset();
+    history.push(location);
   };
 
   const jobNameClasses = hasError ? "form-control invalid" : "form-control";
@@ -56,7 +63,7 @@ const Quotecalculator = (props) => {
             <label htmlFor="name">Job Name</label>
             <input
               type="text"
-              id="name"
+              id="Job Name"
               name="jobName"
               value={state?.jobName?.value}
               onChange={valueChangeHandler}
@@ -110,19 +117,19 @@ const Quotecalculator = (props) => {
             >
               <Form.Check
                 type="radio"
-                name="JobType"
+                name="jobType"
                 label="Loan Modification"
                 value={20}
               />
               <Form.Check
                 type="radio"
-                name="JobType"
+                name="jobType"
                 label="Debt Consolidation"
                 value={30}
               />
               <Form.Check
                 type="radio"
-                name="JobType"
+                name="jobType"
                 label="Auto Purchase"
                 value={50}
               />
