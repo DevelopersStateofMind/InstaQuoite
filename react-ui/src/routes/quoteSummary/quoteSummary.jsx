@@ -1,4 +1,4 @@
-const QuoteSummary = () => {
+const QuoteSummary = (props) => {
   return (
     <div className="quote-summary-header">
       <h1>Quote Summary</h1>
